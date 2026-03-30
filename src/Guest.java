@@ -33,12 +33,19 @@ public class Guest
 
     public String getCzechBirthDateString()
     {
-        return (this.birthDate.getDayOfMonth() + "." + this.birthDate.getMonth() + "." + this.birthDate.getYear());
+        return (this.birthDate.getDayOfMonth() + "." + this.birthDate.getMonthValue() + "." + this.birthDate.getYear());
     }
 
     public void setBirthDate(LocalDate birthDate)
     {
         this.birthDate = birthDate;
     }
+
+    public String getDescription()
+    {
+        return this.getName() + " " + this.getCzechBirthDateString();
+    }
+
+
     //endregion
 }

@@ -11,7 +11,6 @@ public class Room
 
 
 
-    private BookingDateAndType bookingDateAndType;
 
     public Room(int _roomNumber, int _beds, Boolean _hasBalcony, Boolean _hasSeaView, BigDecimal _pricePerNight)
     {
@@ -76,15 +75,6 @@ public class Room
         this.pricePerNight = pricePerNight;
     }
 
-    public BookingDateAndType getBookingDateAndType()
-    {
-        return bookingDateAndType;
-    }
-
-    public void setBookingDateAndType(BookingDateAndType bookingDateAndType)
-    {
-        this.bookingDateAndType = bookingDateAndType;
-    }
     //endregion
 
 }
