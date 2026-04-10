@@ -1,4 +1,4 @@
-import java.security.interfaces.RSAMultiPrimePrivateCrtKey;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,44 +12,50 @@ public class Booking
     private List<Guest> otherGuests;
 
 
-    private BookingDateAndType bookingDateAndType;
+    private LocalDate bookingStart;
+    private LocalDate bookingEnd;
+    private BookingType bookingType;
+
+    //private BookingDateAndType bookingDateAndType;
 
     // All information filled
-    public Booking(Room _room, BookingDateAndType _roomBookingDateAndType, Guest _mainGuest, Guest[] _otherGuests)
+    public Booking(Room room, LocalDate bookingStart, LocalDate bookingEnd, BookingType bookingType, Guest mainGuest, Guest[] otherGuests)
     {
-        this.room = _room;
-        this.mainGuest = _mainGuest;
-        this.otherGuests = Arrays.asList(_otherGuests);
+        this.room = room;
+        this.mainGuest = mainGuest;
+        this.otherGuests = Arrays.asList(otherGuests);
 
-        this.bookingDateAndType = _roomBookingDateAndType;
+        this.bookingStart = bookingStart;
+        this.bookingEnd = bookingEnd;
+        this.bookingType = bookingType;
     }
 
     // Room, main and other guests filled no booking date and type
-    public Booking(Room _room, Guest _mainGuest, Guest[] _otherGuests)
+    public Booking(Room room, Guest mainGuest, Guest[] otherGuests)
     {
-        this.room = _room;
-        this.mainGuest = _mainGuest;
-        this.otherGuests = Arrays.asList(_otherGuests);
-
-        this.bookingDateAndType = new BookingDateAndType();
+        this(room, LocalDate.now(), LocalDate.now().plusDays(6), BookingType.Recreational, mainGuest, otherGuests);
     }
 
     // Room, booking date + type and main Guest filled, no other guest
-    public Booking(Room _room, BookingDateAndType _roomBookingDateAndType, Guest _mainGuest)
+    public Booking(Room room, LocalDate bookingStart, LocalDate bookingEnd, BookingType bookingType, Guest mainGuest)
     {
-        this.room = _room;
-        this.mainGuest = _mainGuest;
+        this.room = room;
+        this.mainGuest = mainGuest;
 
-        this.bookingDateAndType = _roomBookingDateAndType;
+        this.bookingStart = bookingStart;
+        this.bookingEnd = bookingEnd;
+        this.bookingType = bookingType;
 
     }
     // Room and main Guest filled, no other guest + no booking date and type
-    public Booking(Room _room, Guest _mainGuest)
+    public Booking(Room room, Guest mainGuest)
     {
-        this.room = _room;
-        this.mainGuest = _mainGuest;
+        this.room = room;
+        this.mainGuest = mainGuest;
 
-        this.bookingDateAndType = new BookingDateAndType();
+        this.bookingStart = LocalDate.now();
+        this.bookingEnd = LocalDate.now().plusDays(6);
+        this.bookingType = BookingType.Recreational;
 
     }
 
@@ -101,14 +107,34 @@ public class Booking
         this.otherGuests = otherGuests;
     }
 
-    public BookingDateAndType getBookingDateAndType()
+    public LocalDate getBookingStart()
     {
-        return bookingDateAndType;
+        return bookingStart;
     }
 
-    public void setBookingDateAndType(BookingDateAndType bookingDateAndType)
+    public void setBookingStart(LocalDate bookingStart)
     {
-        this.bookingDateAndType = bookingDateAndType;
+        this.bookingStart = bookingStart;
+    }
+
+    public LocalDate getBookingEnd()
+    {
+        return bookingEnd;
+    }
+
+    public void setBookingEnd(LocalDate bookingEnd)
+    {
+        this.bookingEnd = bookingEnd;
+    }
+
+    public BookingType getBookingType()
+    {
+        return bookingType;
+    }
+
+    public void setBookingType(BookingType bookingType)
+    {
+        this.bookingType = bookingType;
     }
 
     //endregion

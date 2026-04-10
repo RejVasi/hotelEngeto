@@ -5,20 +5,20 @@ public class Room
 
     private int roomNumber;
     private int beds;
-    private Boolean hasBalcony;
-    private Boolean hasSeaView;
+    private boolean hasBalcony;
+    private boolean hasSeaView;
     private BigDecimal pricePerNight;
 
 
 
 
-    public Room(int _roomNumber, int _beds, Boolean _hasBalcony, Boolean _hasSeaView, BigDecimal _pricePerNight)
+    public Room(int roomNumber, int beds, boolean hasBalcony, boolean hasSeaView, BigDecimal pricePerNight)
     {
-        this.roomNumber = _roomNumber;
-        this.beds = _beds;
-        this.hasBalcony = _hasBalcony;
-        this.hasSeaView = _hasSeaView;
-        this.pricePerNight = _pricePerNight;
+        this.roomNumber = roomNumber;
+        this.beds = beds;
+        this.hasBalcony = hasBalcony;
+        this.hasSeaView = hasSeaView;
+        this.pricePerNight = pricePerNight;
 
     }
 
@@ -45,22 +45,22 @@ public class Room
         this.beds = beds;
     }
 
-    public Boolean getHasBalcony()
+    public boolean getHasBalcony()
     {
         return hasBalcony;
     }
 
-    public void setHasBalcony(Boolean hasBalcony)
+    public void setHasBalcony(boolean hasBalcony)
     {
         this.hasBalcony = hasBalcony;
     }
 
-    public Boolean getHasSeaView()
+    public boolean getHasSeaView()
     {
         return hasSeaView;
     }
 
-    public void setHasSeaView(Boolean hasSeaView)
+    public void setHasSeaView(boolean hasSeaView)
     {
         this.hasSeaView = hasSeaView;
     }

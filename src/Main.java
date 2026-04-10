@@ -24,9 +24,9 @@ public class Main
         //endregion
 
         //region Make reservations
-        Booking firstBooking = new Booking(room1, new BookingDateAndType(LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), BookingType.RECREATIONAL), adelaM);
-        Booking secondBooking = new Booking(room3, new BookingDateAndType(LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), BookingType.RECREATIONAL), adelaM, new Guest[] { janD });
-        Booking thirdBookingOneRoomDifferentDates = new Booking(room3, new BookingDateAndType(LocalDate.of(2021, 11, 11), LocalDate.of(2021, 11, 20), BookingType.WORK), adelaM, new Guest[] { janD });
+        Booking firstBooking = new Booking(room1, LocalDate.of(2021, 7, 19), LocalDate.of(2021, 7, 26), BookingType.Recreational, adelaM);
+        Booking secondBooking = new Booking(room3, LocalDate.of(2021, 9, 1), LocalDate.of(2021, 9, 14), BookingType.Recreational, adelaM, new Guest[] { janD });
+        Booking thirdBookingOneRoomDifferentDates = new Booking(room3, LocalDate.of(2021, 11, 11), LocalDate.of(2021, 11, 20), BookingType.Work, adelaM, new Guest[] { janD });
         Booking forthBookingNoReserveDates = new Booking(room2, adelaM, new Guest[] { janD });
 
         List<Booking> bookings = new ArrayList<>();
@@ -40,7 +40,7 @@ public class Main
         {
              Guest mainGuest = bookings.get(i).getMainGuest();
              Room reservedRoom = bookings.get(i).getRoom();
-             BookingDateAndType bookingDates = bookings.get(i).getBookingDateAndType();
+           //  BookingDateAndType bookingDates = bookings.get(i).getBookingDateAndType();
 
              String text = "Booking num: " + i
                      + "\nMain guest: " + mainGuest.getDescription()
@@ -50,9 +50,9 @@ public class Main
                      + "\nHas balcony: " + reservedRoom.getHasBalcony()
                      + "\nHas sea view: " + reservedRoom.getHasSeaView()
                      + "\nPrice per night: " + reservedRoom.getPricePerNight()
-                     + "\nBooking start: " + bookingDates.getBookingStart()
-                     + "\nBooking end: " + bookingDates.getBookingEnd()
-                     + "\nBooking type: " + bookingDates.getBookingType();
+                     + "\nBooking start: " + bookings.get(i).getBookingStart()
+                     + "\nBooking end: " + bookings.get(i).getBookingEnd()
+                     + "\nBooking type: " + bookings.get(i).getBookingType();
 
                 System.out.println(text);
                 System.out.println("\n\n");
