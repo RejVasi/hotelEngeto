@@ -6,10 +6,10 @@ public class Guest
     private String name;
     private LocalDate birthDate;
 
-    public Guest(String _name, LocalDate _birthDate)
+    public Guest(String name, LocalDate birthDate)
     {
-        this.name = _name;
-        this.birthDate = _birthDate;
+        this.name = name;
+        this.birthDate = birthDate;
     }
 
 

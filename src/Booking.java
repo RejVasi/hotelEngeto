@@ -1,4 +1,6 @@
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -57,6 +59,45 @@ public class Booking
         this.bookingEnd = LocalDate.now().plusDays(6);
         this.bookingType = BookingType.Recreational;
 
+    }
+
+    private String convertBoolToCzechYesNo(boolean bool)
+    {
+        if(bool)
+        {
+            return "Ano";
+        }
+        return "Ne";
+    }
+
+    public int getGuestsCount()
+    {
+        // Other guest + main guest (main guest is always only one, and without him no reservation can be made)
+        if (this.otherGuests != null)
+        {
+            return this.otherGuests.size() + 1;
+        }
+        // Only main guest
+        return 1;
+    }
+
+    // 9) Only night count is being returned
+    public int getBookingLength()
+    {
+        return Math.toIntExact(getBookingStart().until(getBookingEnd(), ChronoUnit.DAYS));
+    }
+
+    // 10)
+    public BigDecimal getTotalPrice()
+    {
+        return BigDecimal.valueOf(getBookingLength()).multiply(this.room.getPricePerNight());
+    }
+
+
+    // 11)
+    public String getFormattedSummary()
+    {
+        return getBookingStart() + " až " + getBookingEnd() + ": " + getMainGuest().getName() + " (" + getMainGuest().getBirthDate() + ")" + "[" + getGuestsCount() + ", " + convertBoolToCzechYesNo(this.room.getHasSeaView()) + "] za " + getTotalPrice() + " Kč";
     }
 
     //region Getters and Setters

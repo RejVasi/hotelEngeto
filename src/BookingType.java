@@ -1,5 +1,5 @@
 public enum BookingType
 {
-    RECREATIONAL,
-    WORK
+    Recreational,
+    Work
 }
