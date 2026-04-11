@@ -1,8 +1,5 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
 
 public class Main
 {
@@ -82,9 +79,9 @@ public class Main
         //endregion
 
         //region Test data creation
-        Booking firstBooking = new Booking(room3, LocalDate.of(2023, 6, 1), LocalDate.of(2023, 6, 7), BookingType.Work, karelD);
-        Booking secondBooking = new Booking(room2, LocalDate.of(2023, 7, 18), LocalDate.of(2023, 7, 21), BookingType.Recreational, karelD2);
-        Booking thirdBooking = new Booking(room3, LocalDate.of(2023, 8, 1), LocalDate.of(2023, 8, 31), BookingType.Work, karolinaT, new Guest[] { karelD });
+        Booking firstBooking = new Booking(room3, LocalDate.of(2023, 6, 1), LocalDate.of(2023, 6, 7), BookingType.WORK, karelD);
+        Booking secondBooking = new Booking(room2, LocalDate.of(2023, 7, 18), LocalDate.of(2023, 7, 21), BookingType.RECREATIONAL, karelD2);
+        Booking thirdBooking = new Booking(room3, LocalDate.of(2023, 8, 1), LocalDate.of(2023, 8, 31), BookingType.WORK, karolinaT, new Guest[] { karelD });
 
         BookingManager bookingManager = new BookingManager();
         bookingManager.addBooking(firstBooking);
@@ -96,7 +93,7 @@ public class Main
             LocalDate startDate = LocalDate.of(2023, 8, 1).plusDays(i * 2);
             LocalDate endDate = startDate.plusDays(1);
 
-            Booking recreationalBooking = new Booking(room2, startDate, endDate, BookingType.Recreational, karolinaT);
+            Booking recreationalBooking = new Booking(room2, startDate, endDate, BookingType.RECREATIONAL, karolinaT);
             bookingManager.addBooking(recreationalBooking);
         }
 

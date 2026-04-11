@@ -1,4 +1,3 @@
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class BookingManager
         return Math.toIntExact(
                 this.reservations
                     .stream()
-                    .filter(booking -> booking.getBookingType().equals(BookingType.Work))
+                    .filter(booking -> booking.getBookingType().equals(BookingType.WORK))
                     .count());
     }
 
@@ -66,7 +65,7 @@ public class BookingManager
     {
          return this.reservations
                 .stream()
-                .filter(booking -> booking.getBookingType().equals(BookingType.Recreational))
+                .filter(booking -> booking.getBookingType().equals(BookingType.RECREATIONAL))
                 .limit(n)
                 .toList();
     }

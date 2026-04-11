@@ -35,7 +35,7 @@ public class Booking
     // Room, main and other guests filled no booking date and type
     public Booking(Room room, Guest mainGuest, Guest[] otherGuests)
     {
-        this(room, LocalDate.now(), LocalDate.now().plusDays(6), BookingType.Recreational, mainGuest, otherGuests);
+        this(room, LocalDate.now(), LocalDate.now().plusDays(6), BookingType.RECREATIONAL, mainGuest, otherGuests);
     }
 
     // Room, booking date + type and main Guest filled, no other guest
@@ -57,7 +57,7 @@ public class Booking
 
         this.bookingStart = LocalDate.now();
         this.bookingEnd = LocalDate.now().plusDays(6);
-        this.bookingType = BookingType.Recreational;
+        this.bookingType = BookingType.RECREATIONAL;
 
     }
 
